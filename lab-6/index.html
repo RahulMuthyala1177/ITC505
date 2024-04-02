@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number Checker</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-size: 1.2em;
+        }
+        
+        #guess-display {
+            margin-bottom: 1em;
+        }
+        
+        #prime-result-display {
+            margin-top: 1em;
+            font-weight: bold;
+        }
+        
+        #game-controls {
+            display: none;
+        }
+        
+        .js-end-game-pulse {
+            animation-duration: 1s;
+            animation-name: negative-pulse;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+        
+        @keyframes negative-pulse {
+            from {
+                color: black;
+                background-color: white;
+            }
+            to {
+                color: white;
+                background-color: black;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <header class="section coral">HOLY GRAIL LAYOUT</header>
+        <div class="left-side section blue">
+            <!-- Side Navigation Links (Example) -->
+            <a href="#">Home</a><br>
+            <a href="#">About</a><br>
+            <a href="#">Contact</a>
+        </div>
+        <main class="section green">
+            <h1>JavaScript Thingy</h1>
+            <p class="game-instructions">
+                Welcome to the Guessing Game! Please enter a number into the box below, but don't tell the computer what your number is. The computer will then guess your number.
+            </p>
+            <input id="target-box" type="number" min="1" placeholder="Enter a number">
+            <button id="prime-check-btn">Start!</button>
+            <div id="game-controls">
+                <!-- Result will be displayed here -->
+            </div>
+        </main>
+        <div class="right-side section yellow">
+            <!-- Placeholder for Advertisement or Additional Content -->
+            <a href="https://www.amazon.com/"><img src="pic.png" alt="Amazon Promotion" width="200" height="600"></a>
+
+        </div>
+        <footer class="section coral">
+            <h3>Additional Information</h3>
+            <!-- Footer Content -->
+            <h3>Addendum</h3>
+            <p>Problem Description</p>
+            <dl>
+                <dt><b>1. Finding the Holy Grail Layout</b></dt>
+                <dd><em>Research and implementation of the Holy Grail layout using CSS Grid to ensure a responsive design.</em></dd>
+                <br>
+                <dt><b>2. Dividing the Layout for the Section</b></dt>
+                <dd><em>Strategic division of the page into header, navigation, main content, sidebar, and footer sections.</em></dd>
+                <br>
+                <dt><b>3. Adding the Guessing Game in the Main Content</b></dt>
+                <dd><em>Integration of the Guessing Game into the main section to engage users interactively.</em></dd>
+                <br>
+                <dt><b>4. Where to Add the Required JS Scripts</b></dt>
+                <dd><em>Placement of JavaScript script tags at the end of the body section for optimal loading performance.</em></dd>
+            </dl>
+        </footer>
+
+    </div>
+
+    <script>
+        // Function to check if a number is prime
+        function isPrime(number) {
+            if (number <= 1) return false; // numbers less than 2 are not prime
+            for (let i = 2; i * i <= number; i++) {
+                if (number % i === 0) return false; // if divisible by any number other than 1 and itself
+            }
+            return true;
+        }
+
+        // Event listener for the 'Check' button
+        document.getElementById('prime-check-btn').addEventListener('click', function() {
+            // Retrieve the number entered by the user
+            const number = parseInt(document.getElementById('target-box').value);
+            // Check if the number is prime
+            const primeCheck = isPrime(number);
+            // Display the result to the user
+            const gameControls = document.getElementById('game-controls');
+            gameControls.style.display = 'block'; // Show the game controls to display the message
+            gameControls.innerHTML = `<p id="prime-result-display">The number ${number} is ${primeCheck ? '' : 'not '}a prime number.</p>`; // Output the result
+        });
+    </script>
+    <script src="script.js"></script>
+<footer>
+    <p>Last updated: 
+        <span id="lastModified"></span>
+    </p>
+</footer>
+<script type="text/javascript">
+     var x = document.lastModified;
+     document.getElementById('lastModified').textContent = x;
+</script>
+</body>
+
+</html>
