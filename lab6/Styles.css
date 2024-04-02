@@ -1,0 +1,129 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: 200px auto 200px;
+  grid-template-rows: auto;
+  grid-template-areas: "header header header"
+                       "left-side main right-side"
+                       "footer footer footer";
+  gap: 10px;
+}
+
+/* Sections */
+.section {
+  padding: 10px;
+}
+
+.coral {
+  background-color: coral;
+}
+
+.blue {
+  background-color: lightblue;
+}
+
+.green {
+  background-color: lightgreen;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+/* Header */
+header {
+  grid-area: header;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+/* Main Content */
+main {
+  grid-area: main;
+}
+
+/* Footer */
+footer {
+  grid-area: footer;
+  text-align: center;
+}
+
+/* Side Navigation */
+.left-side {
+  grid-area: left-side;
+}
+
+/* Right Side Content */
+.right-side {
+  grid-area: right-side;
+}
+
+/* Guessing Game Styles */
+.game-instructions {
+  font-size: 1.1em;
+}
+
+#target-box {
+  margin-top: 10px;
+  padding: 5px;
+  font-size: 1em;
+}
+
+#prime-check-btn {
+  padding: 8px 16px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+#game-controls {
+  display: none;
+}
+
+#prime-result-display {
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+/* Animation */
+.js-end-game-pulse {
+  animation-duration: 1s;
+  animation-name: negative-pulse;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes negative-pulse {
+  from {
+      color: black;
+      background-color: white;
+  }
+  to {
+      color: white;
+      background-color: black;
+  }
+}
+
+/* Last Updated */
+footer p {
+  font-size: 0.8em;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+  .parent {
+      grid-template-columns: auto;
+      grid-template-areas: "header"
+                           "main"
+                           "footer";
+  }
+
+  .right-side {
+      display: none;
+  }
+}
