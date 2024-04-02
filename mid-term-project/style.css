@@ -1,12 +1,12 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    background-color: #1a1a1a; /* Dark background color */
+    background-color: #13c4c7; /* Dark background color */
     color: #fff;
 }
 
 header {
-    background-color: #333;
+    background-color: #fc2c02b5;
     color: #fff;
     text-align: center;
     padding: 1em;
